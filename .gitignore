@@ -1,2 +1,3 @@
 env_plasma
+*.egg-info
 *.code-workspace
