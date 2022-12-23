@@ -1,3 +1,5 @@
+def hoge():
+  print("fuga")
 class MFC:
   def __init__(self):
     pass
