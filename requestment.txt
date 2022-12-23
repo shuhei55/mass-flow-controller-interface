@@ -1,0 +1,4 @@
+seabreeze
+numpy
+pyserial
+PySimpleGUI
