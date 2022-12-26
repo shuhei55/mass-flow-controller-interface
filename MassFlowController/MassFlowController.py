@@ -54,6 +54,7 @@ class MFC:
     return self.target_flow_list
 
   def get_current_flow_list(self):
+    # 変換式：float f = i * 5.0 / 1023.0;
     return self.current_flow_list
 
   def communication_func(self):

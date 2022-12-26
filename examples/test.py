@@ -4,7 +4,7 @@ import time
 if __name__ == "__main__":
   # 通信を確立
   #mfc_obj = mfc.MFC(port="COM7", baudrate=4800, dummy=True) dummyがTrueだとつながって無くてもエラーをはかずに動く
-  mfc_obj = mfc.MFC(port="COM7", baudrate=4800, dummy=False)
+  mfc_obj = mfc.MFC(port="COM7", baudrate=9600, dummy=False)
   # データ通信を開始
   mfc_obj.run_communication()
   # ターゲット値を指定
