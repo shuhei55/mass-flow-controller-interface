@@ -1,4 +1,2 @@
-seabreeze
 numpy
 pyserial
-PySimpleGUI
