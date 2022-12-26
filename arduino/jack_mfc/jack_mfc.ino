@@ -23,15 +23,16 @@ void loop()
     analogWrite(PIN_MFC1_VALUE, input1);
     analogWrite(PIN_MFC2_VALUE, input2);
     analogWrite(PIN_MFC3_VALUE, input3);
-    while (Serial.available() > 0) {
+    while (Serial.available() > 0)
+    {
       char t = Serial.read();
     }
   }
   int output1 = analogRead(PIN_MFC1_OUTPUT);
   int output2 = analogRead(PIN_MFC2_OUTPUT);
   int output3 = analogRead(PIN_MFC3_OUTPUT);
-  Serial.print(output1);
-  Serial.print(output2);
-  Serial.println(output3);
+  Serial.print(output1 + 100);
+  Serial.print(output2 + 100);
+  Serial.println(output3 + 100);
   delay(100);
 }

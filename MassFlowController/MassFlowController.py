@@ -71,9 +71,9 @@ class MFC:
         self.is_updated = False
       data = self.m_serial.readline()
       if len(data) == 11:
-        self.current_flow_list[0] = int(data[:3])
-        self.current_flow_list[1] = int(data[3:6])
-        self.current_flow_list[2] = int(data[6:9])
+        self.current_flow_list[0] = int(data[:3])-100
+        self.current_flow_list[1] = int(data[3:6]) -100
+        self.current_flow_list[2] = int(data[6:9])-100
 
   def run_communication(self):
     if not self.is_communicate:
