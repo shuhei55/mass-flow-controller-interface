@@ -16,20 +16,22 @@ void loop()
   if (Serial.available() > 0)
   {
     delay(20);
-    int val = Serial.parseInt();
+    long val = Serial.parseInt();
     int input1 = val / 1000000;
     int input2 = (val % 1000000) / 1000;
     int input3 = (val % 1000);
     analogWrite(PIN_MFC1_VALUE, input1);
     analogWrite(PIN_MFC2_VALUE, input2);
     analogWrite(PIN_MFC3_VALUE, input3);
-    while (Serial.available() > 0)
-    {
+    while (Serial.available() > 0) {
       char t = Serial.read();
     }
   }
   int output1 = analogRead(PIN_MFC1_OUTPUT);
   int output2 = analogRead(PIN_MFC2_OUTPUT);
   int output3 = analogRead(PIN_MFC3_OUTPUT);
-  delay(500);
+  Serial.print(output1);
+  Serial.print(output2);
+  Serial.println(output3);
+  delay(100);
 }

@@ -4,12 +4,15 @@ import time
 if __name__ == "__main__":
   # 通信を確立
   #mfc_obj = mfc.MFC(port="COM7", baudrate=4800, dummy=True) dummyがTrueだとつながって無くてもエラーをはかずに動く
-  mfc_obj = mfc.MFC(port="COM7", baudrate=9600, dummy=False)
+  mfc_obj = mfc.MFC(port="COM8", baudrate=9600, dummy=False)
   # データ通信を開始
   mfc_obj.run_communication()
   # ターゲット値を指定
-  mfc_obj.set_target(target_list=[0, 100, 255])
-  time.sleep(2)
+  for i in range(10):
+    print(f"{i+1} / 10 times")
+    mfc_obj.set_target(target_list=[0, 100, 255])
+    mfc_obj.set_target(target_list=[100, 255, 0])
+    mfc_obj.set_target(target_list=[255, 0, 100])
   # 現在の流量を確認
   print(mfc_obj.get_current_flow_list())
   # ゼロに指定

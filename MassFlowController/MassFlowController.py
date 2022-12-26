@@ -1,5 +1,5 @@
 import threading
-
+import time
 import serial
 
 class SerialDummy:
@@ -49,6 +49,7 @@ class MFC:
       self.target_flow_list[i] = clamp(target_list[i], self.MIN_NUM,
                                        self.MAX_NUM)
     self.is_updated = True
+    time.sleep(0.5)
 
   def get_target(self):
     return self.target_flow_list
@@ -69,9 +70,10 @@ class MFC:
                   ).encode()))
         self.is_updated = False
       data = self.m_serial.readline()
-      self.current_flow_list[0] = int(data[:3])
-      self.current_flow_list[1] = int(data[3:6])
-      self.current_flow_list[2] = int(data[6:9])
+      if len(data) == 11:
+        self.current_flow_list[0] = int(data[:3])
+        self.current_flow_list[1] = int(data[3:6])
+        self.current_flow_list[2] = int(data[6:9])
 
   def run_communication(self):
     if not self.is_communicate:
@@ -79,7 +81,6 @@ class MFC:
 
   def stop_communication(self):
     self.is_communicate = False
-
 
 def clamp(n, smallest, largest):
   return int(max(smallest, min(n, largest)))
